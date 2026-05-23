@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Preview script for lf
+# Save as ~/.config/lf/preview
+
+file="$1"
+w="$2"
+h="$3"
+x="$4"
+y="$5"
+
+case "$(file --dereference --brief --mime-type -- "$file")" in
+image/*)
+  # Use symbols format which works reliably in lf
+  chafa -f symbols --symbols block -s "${w}x${h}" "$file"
+  ;;
+text/* | */xml | application/json | application/x-subrip)
+  bat --color=always --style=numbers --line-range=:500 "$file" 2>/dev/null || cat "$file"
+  ;;
+video/* | audio/*)
+  mediainfo "$file" 2>/dev/null || exiftool "$file" 2>/dev/null || file -b "$file"
+  ;;
+application/pdf)
+  pdftotext -l 10 -nopgbrk -q -- "$file" - 2>/dev/null |
+    fmt -w "$w" || echo "Install poppler-utils for PDF preview"
+  ;;
+application/zip)
+  unzip -l "$file" 2>/dev/null
+  ;;
+application/x-rar)
+  unrar l "$file" 2>/dev/null
+  ;;
+application/x-tar | application/gzip | application/x-bzip2 | application/x-xz)
+  tar -tzf "$file" 2>/dev/null
+  ;;
+application/x-7z-compressed)
+  7z l "$file" 2>/dev/null
+  ;;
+*/x-executable | */x-pie-executable)
+  file -b "$file"
+  ;;
+*)
+  bat --color=always --style=numbers --line-range=:500 "$file" 2>/dev/null ||
+    cat "$file"
+  ;;
+esac
+
+exit 0
