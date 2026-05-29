@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+THEME_DIR="$HOME/.config/fastfetch/themes"
+
+THEME=$(find "$THEME_DIR" -name "*.jsonc" | shuf -n 1)
+
+command fastfetch -c "$THEME"

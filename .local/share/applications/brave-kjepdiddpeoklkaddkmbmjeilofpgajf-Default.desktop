@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=TaskFlow OS
+Exec=/opt/brave-bin/brave --profile-directory=Default --app-id=kjepdiddpeoklkaddkmbmjeilofpgajf
+Icon=brave-kjepdiddpeoklkaddkmbmjeilofpgajf-Default
+NoDisplay=true
+StartupWMClass=crx_kjepdiddpeoklkaddkmbmjeilofpgajf

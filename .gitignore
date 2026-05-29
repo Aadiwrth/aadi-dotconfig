@@ -1,8 +1,147 @@
-tt.*
-.tests
-doc/tags
-debug
-.repro
-foo.*
+
+# ==========================================
+
+# Secrets & Credentials
+
+# ==========================================
+
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.kdbx
+*.ovpn
+
+# SSH
+
+.ssh/
+**/.ssh/
+
+# GPG
+
+.gnupg/
+**/.gnupg/
+
+# ==========================================
+
+# Browser Profiles
+
+# ==========================================
+
+BraveSoftware/
+mozilla/
+chromium/
+
+# ==========================================
+
+# Password Managers
+
+# ==========================================
+
+keepassxc/
+keyrings/
+kwalletd/
+
+# ==========================================
+
+# GitHub / Git Credentials
+
+# ==========================================
+
+gh/
+.git-credentials
+
+# ==========================================
+
+# Application Data
+
+# ==========================================
+
+Steam/
+TelegramDesktop/
+Code/
+StardewValley/
+unity3d/
+go/
+yay/
+
+# ==========================================
+
+# Logs & Cache
+
+# ==========================================
+
 *.log
-data
+cache/
+.cache/
+**/cache/
+**/.cache/
+
+# ==========================================
+
+# Runtime Files
+
+# ==========================================
+
+*.pid
+*.lock
+*.sock
+
+# ==========================================
+
+# Temporary Files
+
+# ==========================================
+
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# ==========================================
+
+# Local Share Data
+
+# ==========================================
+
+.local/share/Steam/
+.local/share/TelegramDesktop/
+.local/share/Trash/
+.local/share/keyrings/
+.local/share/gvfs-metadata/
+.local/share/flatpak/
+
+# ==========================================
+
+# Neovim Data (keep config only)
+
+# ==========================================
+
+.local/share/nvim/
+.local/state/nvim/
+.local/cache/nvim/
+
+# ==========================================
+
+# Hyprland Runtime
+
+# ==========================================
+
+.local/share/hyprland/
+
+# ==========================================
+
+# Backup Folders
+
+# ==========================================
+
+*-backup*
+*.bak
+nvim-old/
+hypr.bak/
+fish (copy 1)/
+

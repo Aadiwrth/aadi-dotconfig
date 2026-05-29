@@ -1,0 +1,29 @@
+#!/bin/bash
+
+STATE="$HOME/.cache/wallpaper_enabled"
+SCRIPT="$HOME/.config/hypr/UserScripts/mpvpaper-auto.sh"
+
+case "$1" in
+    --on)
+
+        touch "$STATE"
+
+        pkill mpvpaper
+        pkill -f mpvpaper-auto.sh
+
+        "$SCRIPT" &
+        ;;
+
+    --off)
+
+        rm -f "$STATE"
+
+        pkill mpvpaper
+        pkill -f mpvpaper-auto.sh
+        ;;
+
+    *)
+
+        echo "Usage: wallpaper --on|--off"
+        ;;
+esac
